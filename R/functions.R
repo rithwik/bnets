@@ -23,7 +23,7 @@ preprocess <- function(df) {
 #' @importFrom infotheo mutinformation
 #' @import visNetwork
 #' @export
-draw_network <- function(df = wbcd, algo) {
+make_net <- function(df = wbcd, algo) {
   df <- preprocess(df)
   net <- do.call(algo, list(df))
 
