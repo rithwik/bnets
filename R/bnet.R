@@ -62,7 +62,7 @@ bnet <- function(df) {
   shinyApp(
     ### UI SECTION ###
     ui = fluidPage(
-      titlePanel('bnlearn'),
+      titlePanel('BNets playground'),
       sidebarPanel(
         selectInput(
           'algo',
