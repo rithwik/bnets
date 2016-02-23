@@ -47,16 +47,15 @@ draw_network <- function(df = wbcd, algo) {
       highlightNearest = list(enabled = TRUE, degree = 2)
     )
 }
+
 #' Make App
 #'
-#' Make shiny page to create create bayesian networks
+#' Make shiny page to create bayesian networks
 #' @param df The data.frame passed in. Defaults to wbcd.
 #' @export
 #' @importFrom dplyr %>%
 #' @import bnlearn visNetwork shiny
-#' @examples
-#' bnet(df)
-bnet <- function(df = wbcd) {
+make_app <- function(df = wbcd) {
 
   df <- preprocess(df)
 
