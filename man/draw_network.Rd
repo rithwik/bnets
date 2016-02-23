@@ -4,7 +4,7 @@
 \alias{draw_network}
 \title{Draw the network}
 \usage{
-draw_network(df, algo)
+draw_network(df = wbcd, algo)
 }
 \arguments{
 \item{df}{Preprocessed dataframe (i.e. discretized numerics and factors)}

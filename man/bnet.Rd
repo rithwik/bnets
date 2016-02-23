@@ -4,7 +4,7 @@
 \alias{bnet}
 \title{Make App}
 \usage{
-bnet(df)
+bnet(df = wbcd)
 }
 \arguments{
 \item{df}{The data.frame passed in. No defaults.}
