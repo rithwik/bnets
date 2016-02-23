@@ -17,12 +17,13 @@ preprocess <- function(df) {
 #' Draw the network
 #'
 #' Uses visNetwork to draw a network
-#' @param df Preprocessed dataframe (i.e. discretized numerics and factors)
+#' @param df Preprocessed dataframe (i.e. discretized numerics and factors). Defaults to wbcd.
 #' @param algo Name of algorithm to be used for structure learning
 #' @importFrom dplyr %>%
+#' @importFrom infotheo mutinformation
 #' @import visNetwork
 #' @export
-draw_network <- function(df, algo) {
+draw_network <- function(df = wbcd, algo) {
   df <- preprocess(df)
   net <- do.call(algo, list(df))
 
@@ -49,13 +50,13 @@ draw_network <- function(df, algo) {
 #' Make App
 #'
 #' Make shiny page to create create bayesian networks
-#' @param df The data.frame passed in. No defaults.
+#' @param df The data.frame passed in. Defaults to wbcd.
 #' @export
 #' @importFrom dplyr %>%
 #' @import bnlearn visNetwork shiny
 #' @examples
 #' bnet(df)
-bnet <- function(df) {
+bnet <- function(df = wbcd) {
 
   df <- preprocess(df)
 
