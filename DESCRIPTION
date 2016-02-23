@@ -1,0 +1,22 @@
+Package: bnets
+Title: Bayesian Networks Playground
+Version: 0.0.0.9000
+Authors@R: person("Rithwik", "K", email = "0rithwik@gmail.com", role = c("aut", "cre"))
+Description: Uses functions from bnlearn to explore bayesian networks inside of a shiny app.
+Depends:
+    R (>= 3.2.2)
+Imports:
+  bnlearn,
+  dplyr,
+  infotheo,
+  shiny,
+  visNetwork
+License: GPL-3
+LazyData: true
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+URL: http://github.com/rithwik/bnets
+BugReports: http://github.com/rithwik/bnets/issues
