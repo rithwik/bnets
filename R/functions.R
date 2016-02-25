@@ -4,14 +4,24 @@
 #' @export
 #' @importFrom infotheo discretize
 preprocess <- function(df) {
-  ids <- colnames(df)
-  df[, sapply(df, is.character)] <- Map(as.factor, df[, sapply(df, is.character)])
-  df[, sapply(df, is.numeric)] <- data.frame(
-    lapply(df[, sapply(df, is.numeric)], infotheo::discretize)
-  )
-  df[, sapply(df, is.integer)] <- Map(as.numeric, df[, sapply(df, is.integer)])
-  names(df) <- ids
+  intnums <- vapply(df, function(x) is.integer(x) | is.numeric(x), logical(1))
+
+  df[, intnums] <- data.frame(lapply(df[, intnums], infotheo::discretize))
+  df[, intnums] <- Map(as.factor, df[, intnums])
+
+  df[] <- Map(as.character, df)
+  df[df == ''] <- 'None'
+  df[] <- Map(as.factor, df)
+
   df
+  # ids <- colnames(df)
+  # df[, sapply(df, is.character)] <- Map(as.factor, df[, sapply(df, is.character)])
+  # df[, sapply(df, is.numeric)] <- data.frame(
+  #   lapply(df[, sapply(df, is.numeric)], infotheo::discretize)
+  # )
+  # df[, sapply(df, is.integer)] <- Map(as.numeric, df[, sapply(df, is.integer)])
+  # names(df) <- ids
+  # df
 }
 
 #' Draw the network
