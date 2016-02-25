@@ -87,7 +87,7 @@ make_app <- function(df = wbcd) {
     ### SERVER SECTION ###
     server = function(input, output) {
       output$network = renderVisNetwork({
-        make_network(df, input$algo)
+        make_net(df, input$algo)
       })
     }
   )
